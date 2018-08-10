@@ -1,3 +1,10 @@
+# Overview
+We recommend that Snowplow and Snowman users create an AWS sub-account and sandbox all of their Snowplow operations into that account.
+
+This is particularly recommended for any users who are working with (or plan to work with) Snowplow Professional Services - as you can then assign Snowplow Professional Services liberal permissions on this sub-account, without impacting on your main account (or other sub-accounts) in any way.
+
+[Instructions on how to set up AWS Sub Account](https://github.com/snowplow/snowplow/wiki/AWS-sub-account-setup)
+
 ### Create Cloudfront Keypair
 
 Create AWS account and go to the my security credentials menu, if popup, click "Continue to Security Credentials":  
