@@ -2,29 +2,29 @@
 
 Create AWS account and go to the my security credentials menu, if popup, click "Continue to Security Credentials":  
   
-![image](./images/security-credentials-button.png?raw=true)
+![image](images\security-credentials-button.png?raw=true)
   
 Then expand the "CloudFront key pairs" section and click on "Create New Key Pair":  
   
-![image](images/cloudfront-keypair-expanded.png?raw=true)
+![image](images\cloudfront-keypair-expanded.png?raw=true)
   
 Download the private key:  
   
-![image](./images/download-keypair.png?raw=true)
+![image](images\download-keypair.png?raw=true)
   
 Make a note of the Access Key Id (also contained in the file name of the private key file):  
   
-![image](./images/keypair-id.png?raw=true)
+![image](images\keypair-id.png?raw=true)
 
 ### Create a cross account role
 
 While still in the IAM console, click on Roles in the side menu and then Create Roles button.    
 
-![image](./images/create-role.png?raw=true)
+![image](images\create-role.png?raw=true)
   
 Click on "Another AWS account" button:
 
-![image](./images/another-account.png?raw=true)  
+![image](images\another-account.png?raw=true)  
   
 Enter the account id supplied and optionally enter an external id or enable MFA. *(Users could enable either of these two  
 options and they would have to give the externalid and mfa code to the application when AssumeRole is called, need to handle it  
@@ -35,8 +35,8 @@ security, the application can reject any role that is not called e.g. "ExampleRo
   
 Add permissions inline, copy and paste the supplied iam policy document:  
 
-![image](./images/role-add-inline.png?raw=true)
-![image](./images/paste-policy-json.png?raw=true)
+![image](images\role-add-inline.png?raw=true)
+![image](images\paste-policy-json.png?raw=true)
 
 #### Optional steps
   
