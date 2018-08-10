@@ -6,7 +6,7 @@ Create AWS account and go to the my security credentials menu, if popup, click "
   
 Then expand the "CloudFront key pairs" section and click on "Create New Key Pair":  
   
-![image](./images/cloudfront-keypair-expanded.png?raw=true)
+![image](images/cloudfront-keypair-expanded.png?raw=true)
   
 Download the private key:  
   
