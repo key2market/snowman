@@ -1,0 +1,57 @@
+Resources:
+
+  UserBucket:
+    Type: AWS::S3::Bucket
+
+  UserBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref UserBucket
+      PolicyDocument:
+        Statement:
+        - Effect: Allow
+          Principal:
+            CanonicalUser: !GetAtt S3OriginAccessIdentity.S3CanonicalUserId
+          Action:
+          - s3:GetObject
+          Resource:
+          - !Sub "${UserBucket.Arn}/*"
+
+  S3OriginAccessIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: Access to S3 Buckets
+
+  CloudfrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Origins:
+        - DomainName: !GetAtt UserBucket.DomainName
+          Id: !Ref UserBucket
+          S3OriginConfig:
+            OriginAccessIdentity: !Sub "origin-access-identity/cloudfront/${S3OriginAccessIdentity}"
+        DefaultCacheBehavior:
+          AllowedMethods:
+          - DELETE
+          - GET
+          - HEAD
+          - OPTIONS
+          - PATCH
+          - POST
+          - PUT
+          Compress: true
+          TargetOriginId: !Ref UserBucket
+          ForwardedValues:
+            QueryString: false
+            Cookies:
+              Forward: none
+          TrustedSigners:
+          - !Ref "AWS::AccountId"
+          ViewerProtocolPolicy: redirect-to-https
+        IPV6Enabled: false
+        Enabled: true
+      
+  
+  

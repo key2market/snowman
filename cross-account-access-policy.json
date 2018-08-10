@@ -1,0 +1,60 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloudformation:CreateUploadBucket",
+                "cloudformation:EstimateTemplateCost",
+                "cloudformation:ListExports",
+                "cloudformation:ListStacks",
+                "cloudformation:ListImports",
+                "cloudformation:DescribeAccountLimits",
+                "cloudformation:ValidateTemplate",
+                "cloudformation:GetTemplateSummary"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "cloudformation:*",
+            "Resource": [
+                "arn:aws:cloudformation:*:*:stack/*",
+                "arn:aws:cloudformation:*:*:stackset/*:*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:PutBucketPolicy",
+                "s3:CreateBucket",
+                "s3:ListBucket",
+                "s3:DeleteBucketPolicy",
+                "s3:DeleteBucket"
+            ],
+            "Resource": "arn:aws:s3:::*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloudfront:GetDistribution",
+                "cloudfront:GetCloudFrontOriginAccessIdentityConfig",
+                "cloudfront:ListCloudFrontOriginAccessIdentities",
+                "cloudfront:DeleteCloudFrontOriginAccessIdentity",
+                "cloudfront:ListDistributions",
+                "cloudfront:GetCloudFrontOriginAccessIdentity",
+                "cloudfront:UpdateCloudFrontOriginAccessIdentity",
+                "cloudfront:UpdateDistribution",
+                "cloudfront:CreateDistribution",
+                "cloudfront:GetDistributionConfig",
+                "cloudfront:DeleteDistribution",
+                "cloudfront:CreateCloudFrontOriginAccessIdentity",
+                "cloudfront:TagResource",
+                "cloudfront:UntagResource"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
